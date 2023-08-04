@@ -4,11 +4,12 @@ COPY run.sh /tmp
 COPY docker_init.sh /tmp
 COPY grnoc7.repo /etc/yum.repos.d/grnoc7.repo
 COPY grnoc-netsage-deidentifier-2.0.0-1.el7.noarch.rpm /tmp
-COPY deidentifier /etc/netsage
+RUN mkdir /etc/netsage
+COPY deidentifier/ /etc/netsage
 RUN chmod +x /tmp/*.sh
 
 # for backward compatibility for older versions
-RUN mkdir -p /etc/grnoc/netsage; ln -s /etc/grnoc/netsage /etc/netsage
+RUN mkdir -p /etc/grnoc; ln -s /etc/netsage /etc/grnoc/netsage
 
 RUN yum  -y update 
 RUN yum install -y dnf epel-release nfdump wget

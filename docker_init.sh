@@ -29,7 +29,9 @@ echo "Download ScienceRegistry and maxmind"
 downloadFiles mmdb $FILES
 echo "Download Caida Files"
 downloadFiles csv $CAIDA_FILES
-echo "Download Ruby files"
-DATA_DIR=$LOGSTASH_DIR
-downloadFiles rb $RUBY_DATA
+
+#these are out of date, so skip for now
+#echo "Download Ruby files"
+#DATA_DIR=$LOGSTASH_DIR
+#downloadFiles rb $RUBY_DATA
 
